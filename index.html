@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ListenRiver / 听川</title>
+    <meta
+      name="description"
+      content="ListenRiver is a local audio/video processing workstation that keeps each pipeline step inspectable with durable project artifacts."
+    />
+    <link rel="icon" href="assets/icon.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" aria-label="Site header">
+      <a class="brand" href="./" aria-label="ListenRiver home">
+        <img src="assets/icon.png" alt="" />
+        <span>ListenRiver</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#pipeline">Pipeline</a>
+        <a href="#download">Download</a>
+        <a href="https://github.com/uigdwunm/listenriver-site/releases">Releases</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <img class="hero-mark" src="assets/icon.png" alt="" />
+        <div class="hero-content">
+          <p class="eyebrow">Local audio/video workstation</p>
+          <h1 id="hero-title">ListenRiver / 听川</h1>
+          <p class="hero-subtitle">
+            A desktop workspace for turning imported media into durable, inspectable audio artifacts first, then continuing through vocals, denoise, transcription, translation, and subtitles.
+          </p>
+          <div class="hero-actions" id="download">
+            <a class="button primary" href="https://github.com/uigdwunm/listenriver-site/releases">Download from Releases</a>
+            <a class="button secondary" href="#pipeline">View pipeline</a>
+          </div>
+          <dl class="release-strip" aria-label="Current release information">
+            <div>
+              <dt>Current app</dt>
+              <dd>ListenRiver Extractor</dd>
+            </div>
+            <div>
+              <dt>Version</dt>
+              <dd>0.1.0</dd>
+            </div>
+            <div>
+              <dt>First target</dt>
+              <dd>macOS arm64</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="section intro-grid" aria-label="Product principles">
+        <article>
+          <span class="kicker">Local-first</span>
+          <h2>默认在本机处理</h2>
+          <p>
+            ListenRiver is designed as a local workstation. Cloud processing is not the default path and should only happen after a clear user choice.
+          </p>
+        </article>
+        <article>
+          <span class="kicker">Inspectable</span>
+          <h2>每一步都有产物</h2>
+          <p>
+            Projects keep durable files such as extracted WAV audio and project metadata under the project directory, so outputs can be played, exported, and inspected.
+          </p>
+        </article>
+        <article>
+          <span class="kicker">Project-based</span>
+          <h2>以项目目录管理</h2>
+          <p>
+            Each imported media file becomes a project with explicit step folders. Later processing can build on the existing project artifacts.
+          </p>
+        </article>
+      </section>
+
+      <section class="section completed" aria-labelledby="completed-title">
+        <div>
+          <p class="eyebrow">Implemented now</p>
+          <h2 id="completed-title">Current completed step</h2>
+          <p>
+            The current packaged flow imports media, extracts one full-band working WAV, writes project metadata, and lets the user play or export that WAV.
+          </p>
+        </div>
+        <ol class="artifact-list">
+          <li>Import video or audio media</li>
+          <li>Create the project directory</li>
+          <li>Write <code>steps/02-extract-audio/audio/original.wav</code></li>
+          <li>Write <code>project.json</code></li>
+          <li>Play or export the extracted WAV</li>
+        </ol>
+      </section>
+
+      <section class="section pipeline" id="pipeline" aria-labelledby="pipeline-title">
+        <div class="section-heading">
+          <p class="eyebrow">Product pipeline</p>
+          <h2 id="pipeline-title">From media to subtitles</h2>
+          <p>
+            The full product pipeline is exposed as explicit steps. The audio extraction step is available today; downstream voice, transcript, translation, and subtitle steps are pending product work.
+          </p>
+        </div>
+
+        <ol class="pipeline-list">
+          <li class="is-done">
+            <span class="step-number">01</span>
+            <div>
+              <h3>Import video/media</h3>
+              <p>Create the project directory and project index.</p>
+            </div>
+            <strong>Done</strong>
+          </li>
+          <li class="is-done">
+            <span class="step-number">02</span>
+            <div>
+              <h3>Extract audio</h3>
+              <p>Produce <code>steps/02-extract-audio/audio/original.wav</code>.</p>
+            </div>
+            <strong>Done</strong>
+          </li>
+          <li>
+            <span class="step-number">03</span>
+            <div>
+              <h3>Extract vocals</h3>
+              <p>Find speech candidates and produce segment-level vocal artifacts.</p>
+            </div>
+            <strong>Pending</strong>
+          </li>
+          <li>
+            <span class="step-number">04</span>
+            <div>
+              <h3>Enhance and denoise vocals</h3>
+              <p>Clean vocal segments while preserving the original timeline mapping.</p>
+            </div>
+            <strong>Pending</strong>
+          </li>
+          <li>
+            <span class="step-number">05</span>
+            <div>
+              <h3>Transcribe speech</h3>
+              <p>Write structured transcript files for downstream subtitle work.</p>
+            </div>
+            <strong>Pending</strong>
+          </li>
+          <li>
+            <span class="step-number">06</span>
+            <div>
+              <h3>Translate subtitles</h3>
+              <p>Enrich transcript segments with translation fields.</p>
+            </div>
+            <strong>Pending</strong>
+          </li>
+          <li>
+            <span class="step-number">07</span>
+            <div>
+              <h3>Generate subtitles</h3>
+              <p>Render source and translated SRT/VTT files.</p>
+            </div>
+            <strong>Pending</strong>
+          </li>
+        </ol>
+      </section>
+
+      <section class="section limits" aria-labelledby="limits-title">
+        <div class="section-heading">
+          <p class="eyebrow">Boundaries</p>
+          <h2 id="limits-title">Clear about what mixed audio can and cannot do</h2>
+        </div>
+        <div class="limit-grid">
+          <p>
+            Vocal extraction is not the same as isolating one chosen person. Background speech can remain speech and may appear in extracted vocal segments.
+          </p>
+          <p>
+            A single mixed track can contain overlapping speakers, music, reverb, wind, and compression. ListenRiver will not promise perfect separation from that source.
+          </p>
+        </div>
+      </section>
+
+      <section class="section download-panel" aria-labelledby="download-title">
+        <div>
+          <p class="eyebrow">Download</p>
+          <h2 id="download-title">Public builds live in GitHub Releases</h2>
+          <p>
+            The website repository is separate from the private app source. Installer files are attached to public GitHub Releases when they are ready.
+          </p>
+        </div>
+        <a class="button primary" href="https://github.com/uigdwunm/listenriver-site/releases">Open Releases</a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>ListenRiver / 听川</span>
+      <a href="https://github.com/uigdwunm/listenriver-site">GitHub repository</a>
+    </footer>
+  </body>
+</html>
