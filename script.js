@@ -1,6 +1,6 @@
 const translations = {
   zh: {
-    "meta.title": "听川｜本地生成与翻译视频字幕",
+    "meta.title": "听川｜本地生成翻译字幕",
     "meta.description": "听川在本地自动转录视频语音、翻译字幕并导出 SRT/VTT，无需默认上传你的媒体文件。",
     "aria.siteHeader": "网站页眉",
     "aria.home": "返回听川首页",
@@ -15,7 +15,7 @@ const translations = {
     "nav.releases": "发布记录",
     "hero.releaseBadge": "字幕生成 · 字幕翻译 · 完全本地处理",
     "hero.eyebrow": "本地 AI 字幕工作站",
-    "hero.title": "生成字幕，<br />翻译字幕，<br /><em>全部在本地。</em>",
+    "hero.title": "本地生成<br /><em>翻译字幕</em>",
     "hero.subtitle": "导入视频或音频，自动识别语音、生成时间轴字幕并翻译为简体中文。媒体和模型默认留在你的电脑上。",
     "hero.download": "下载 Windows x64 版",
     "hero.viewPipeline": "了解字幕能力",
@@ -97,7 +97,7 @@ const translations = {
     "footer.github": "GitHub 仓库"
   },
   en: {
-    "meta.title": "ListenRiver | Generate and Translate Subtitles Locally",
+    "meta.title": "ListenRiver | Generate Translated Subtitles Locally",
     "meta.description": "ListenRiver transcribes media, translates subtitles, and exports SRT/VTT locally without uploading your media by default.",
     "aria.siteHeader": "Site header",
     "aria.home": "Back to ListenRiver home",
@@ -112,7 +112,7 @@ const translations = {
     "nav.releases": "Releases",
     "hero.releaseBadge": "Subtitle generation · Translation · Fully local",
     "hero.eyebrow": "A local AI subtitle workstation",
-    "hero.title": "Generate.<br />Translate.<br /><em>Stay local.</em>",
+    "hero.title": "Generate translated<br /><em>subtitles locally.</em>",
     "hero.subtitle": "Import video or audio, transcribe speech, create timed subtitles, and translate them into Simplified Chinese—all while keeping media and models on your computer by default.",
     "hero.download": "Download for Windows x64",
     "hero.viewPipeline": "Explore subtitle features",
