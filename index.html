@@ -4,10 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#071b1c" />
-    <title>听川｜本地音视频处理工作站</title>
+    <title>听川｜本地生成与翻译视频字幕</title>
     <meta
       name="description"
-      content="听川是一款本地音视频处理工作站，以清晰的处理步骤和可检查的项目产物，帮助你从媒体文件一路处理到字幕。"
+      content="听川在本地自动转录视频语音、翻译字幕并导出 SRT/VTT，无需默认上传你的媒体文件。"
     />
     <link rel="icon" href="assets/icon.png" />
     <link rel="stylesheet" href="styles.css" />
@@ -19,7 +19,7 @@
         <span class="brand-mark" aria-hidden="true"><span></span></span>
         <span class="brand-copy">
           <strong data-i18n="brand.name">听川</strong>
-          <small data-i18n="brand.subtitle">本地工作站</small>
+          <small data-i18n="brand.subtitle">本地字幕工作站</small>
         </span>
       </a>
 
@@ -44,19 +44,19 @@
         <div class="hero-copy">
           <div class="release-badge">
             <span class="release-dot" aria-hidden="true"></span>
-            <span data-i18n="hero.releaseBadge">Windows x64 0.1.1 预览版现已提供</span>
+            <span data-i18n="hero.releaseBadge">字幕生成 · 字幕翻译 · 完全本地处理</span>
           </div>
-          <p class="eyebrow" data-i18n="hero.eyebrow">本地优先的音视频工作站</p>
-          <h1 id="hero-title" data-i18n-html="hero.title">让每一步处理<br /><em>都看得见。</em></h1>
+          <p class="eyebrow" data-i18n="hero.eyebrow">本地 AI 字幕工作站</p>
+          <h1 id="hero-title" data-i18n-html="hero.title">生成字幕，<br />翻译字幕，<br /><em>全部在本地。</em></h1>
           <p class="hero-subtitle" data-i18n="hero.subtitle">
-            从导入媒体、提取音频，到后续的人声、转录、翻译和字幕工作；每一步都有明确状态和可长期保留的项目产物。
+            导入视频或音频，自动识别语音、生成时间轴字幕并翻译为简体中文。媒体和模型默认留在你的电脑上。
           </p>
           <div class="hero-actions">
             <a class="button button-primary" href="https://github.com/uigdwunm/listenriver-site/releases/download/v0.1.1/ListenRiver-Extractor-0.1.1-windows-x64-setup.exe">
               <span class="button-icon" aria-hidden="true">↓</span>
               <span data-i18n="hero.download">下载 Windows x64 版</span>
             </a>
-            <a class="button button-ghost" href="#pipeline" data-i18n="hero.viewPipeline">查看完整流程</a>
+            <a class="button button-ghost" href="#features" data-i18n="hero.viewPipeline">了解字幕能力</a>
           </div>
           <p class="hero-note" data-i18n="hero.unsignedNote">0.1.1 预览版 · 未签名安装包 · 本地处理</p>
         </div>
@@ -64,75 +64,75 @@
         <div class="workstation-preview" aria-hidden="true">
           <div class="preview-toolbar">
             <div class="preview-dots"><span></span><span></span><span></span></div>
-            <span data-i18n="preview.project">项目：采访素材</span>
+            <span data-i18n="preview.project">字幕项目：采访视频</span>
             <span class="preview-status" data-i18n="preview.local">本地</span>
           </div>
           <div class="preview-body">
-            <div class="wave-panel">
-              <div class="wave-meta">
-                <span data-i18n="preview.originalAudio">原始音频</span>
-                <strong>original.wav</strong>
+            <div class="subtitle-canvas">
+              <div class="video-placeholder">
+                <span class="play-mark">▶</span>
+                <span class="video-duration">24:18</span>
+                <p data-i18n="preview.videoCaption">今天我们来聊聊本地字幕。</p>
               </div>
-              <div class="waveform">
-                <i style="--h: 28%"></i><i style="--h: 54%"></i><i style="--h: 38%"></i><i style="--h: 76%"></i><i style="--h: 94%"></i><i style="--h: 64%"></i><i style="--h: 86%"></i><i style="--h: 48%"></i><i style="--h: 70%"></i><i style="--h: 34%"></i><i style="--h: 58%"></i><i style="--h: 82%"></i><i style="--h: 45%"></i><i style="--h: 67%"></i><i style="--h: 31%"></i><i style="--h: 52%"></i><i style="--h: 73%"></i><i style="--h: 42%"></i><i style="--h: 88%"></i><i style="--h: 62%"></i><i style="--h: 36%"></i><i style="--h: 69%"></i><i style="--h: 47%"></i><i style="--h: 78%"></i>
-              </div>
-              <div class="wave-time"><span>00:00</span><span>24:18</span></div>
+              <div class="subtitle-progress"><span></span></div>
             </div>
-            <div class="artifact-tree">
-              <div class="tree-heading">
-                <span data-i18n="preview.artifacts">项目产物</span>
-                <span>project.json</span>
+            <div class="subtitle-tracks">
+              <div class="track-heading">
+                <span data-i18n="preview.subtitleTracks">字幕轨道</span>
+                <span class="export-formats">SRT&nbsp;&nbsp;VTT</span>
               </div>
-              <div class="tree-row"><span class="tree-caret">⌄</span><span class="folder-icon"></span><strong>steps</strong></div>
-              <div class="tree-row tree-indent"><span class="tree-caret">⌄</span><span class="folder-icon"></span><strong>02-extract-audio</strong></div>
-              <div class="tree-row tree-indent-two"><span></span><span class="file-icon"></span><span>original.wav</span><b>✓</b></div>
-              <div class="tree-row tree-indent"><span class="tree-caret">›</span><span class="folder-icon"></span><span>03-extract-vocals</span><small data-i18n="status.pending">待处理</small></div>
-              <div class="tree-row tree-indent"><span class="tree-caret">›</span><span class="folder-icon"></span><span>05-transcribe-speech</span><small data-i18n="status.pending">待处理</small></div>
-              <div class="tree-row tree-indent"><span class="tree-caret">›</span><span class="folder-icon"></span><span>07-generate-subtitles</span><small data-i18n="status.pending">待处理</small></div>
+              <div class="subtitle-row is-source">
+                <time>00:08.920</time>
+                <div><span data-i18n="preview.sourceJapanese">原文 · 日语</span><p>今日はローカル字幕について話します。</p></div>
+              </div>
+              <div class="subtitle-row is-translation">
+                <time>00:08.920</time>
+                <div><span data-i18n="preview.translationChinese">译文 · 简体中文</span><p data-i18n="preview.translatedText">今天我们来聊聊本地字幕。</p></div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       <section class="quick-facts" data-i18n-aria-label="aria.releaseInfo">
-        <div><span data-i18n="facts.currentVersion">当前版本</span><strong data-i18n="facts.versionValue">0.1.1 预览版</strong></div>
-        <div><span data-i18n="facts.latestPlatform">最新平台</span><strong>Windows x64</strong></div>
-        <div><span data-i18n="facts.processing">处理方式</span><strong data-i18n="facts.localProcessing">默认本地处理</strong></div>
-        <div><span data-i18n="facts.artifacts">产物管理</span><strong data-i18n="facts.projectDirectory">独立项目目录</strong></div>
+        <div><span data-i18n="facts.outputs">字幕格式</span><strong>SRT / VTT</strong></div>
+        <div><span data-i18n="facts.translation">本地翻译</span><strong data-i18n="facts.languagePairs">日 / 韩 / 英 → 简中</strong></div>
+        <div><span data-i18n="facts.processing">媒体处理</span><strong data-i18n="facts.localProcessing">完全在本地运行</strong></div>
+        <div><span data-i18n="facts.timeline">时间信息</span><strong data-i18n="facts.originalTimeline">保留原始时间线</strong></div>
       </section>
 
       <section class="section features" id="features" aria-labelledby="features-title">
         <div class="section-heading centered">
-          <p class="eyebrow" data-i18n="features.eyebrow">为什么选择听川</p>
-          <h2 id="features-title" data-i18n="features.title">处理过程不再是黑盒</h2>
-          <p data-i18n="features.subtitle">围绕本地处理、可检查产物和项目化管理设计，让长流程工作更可靠，也更容易继续。</p>
+          <p class="eyebrow" data-i18n="features.eyebrow">核心能力</p>
+          <h2 id="features-title" data-i18n="features.title">从语音到翻译字幕，一台电脑完成</h2>
+          <p data-i18n="features.subtitle">自动识别视频中的语音，生成带时间轴的字幕，并在本地完成翻译与字幕文件导出。</p>
         </div>
         <div class="feature-grid">
           <article class="feature-card feature-card-primary">
             <span class="feature-number">01</span>
-            <div class="feature-symbol symbol-local" aria-hidden="true"><i></i></div>
-            <h3 data-i18n="features.localTitle">默认在本机处理</h3>
-            <p data-i18n="features.localBody">媒体文件和项目产物默认留在你的电脑上。只有在明确选择云端处理后，才会上传必要的数据。</p>
+            <div class="feature-symbol symbol-subtitle" aria-hidden="true"><i></i><i></i><i></i></div>
+            <h3 data-i18n="features.localTitle">自动生成字幕</h3>
+            <p data-i18n="features.localBody">从视频或音频中识别语音，保留原始时间信息，并生成可直接使用的 SRT、VTT 字幕文件。</p>
           </article>
           <article class="feature-card">
             <span class="feature-number">02</span>
-            <div class="feature-symbol symbol-artifact" aria-hidden="true"><i></i><i></i><i></i></div>
-            <h3 data-i18n="features.artifactTitle">每一步都有产物</h3>
-            <p data-i18n="features.artifactBody">音频、时间线、转录和字幕都保存在明确的步骤目录中，可以检查、播放、导出和复用。</p>
+            <div class="feature-symbol symbol-translate" aria-hidden="true"><span>あ</span><b>→</b><span>中</span></div>
+            <h3 data-i18n="features.artifactTitle">本地翻译字幕</h3>
+            <p data-i18n="features.artifactBody">默认支持日语、韩语和英语字幕翻译为简体中文，同时保留原文、译文与逐段时间轴。</p>
           </article>
           <article class="feature-card">
             <span class="feature-number">03</span>
-            <div class="feature-symbol symbol-project" aria-hidden="true"><i></i></div>
-            <h3 data-i18n="features.projectTitle">以项目目录管理</h3>
-            <p data-i18n="features.projectBody">每个媒体文件对应一个独立项目。处理状态、工具版本和产物来源都记录在项目索引中。</p>
+            <div class="feature-symbol symbol-local" aria-hidden="true"><i></i></div>
+            <h3 data-i18n="features.projectTitle">完全本地处理</h3>
+            <p data-i18n="features.projectBody">语音识别、字幕翻译和文件生成默认都在你的电脑上运行，媒体文件无需上传到云端。</p>
           </article>
         </div>
       </section>
 
       <section class="section completed" aria-labelledby="completed-title">
         <div class="completed-copy">
-          <p class="eyebrow" data-i18n="completed.eyebrow">当前已实现</p>
-          <h2 id="completed-title" data-i18n="completed.title">从媒体导入到完整工作音频</h2>
+          <p class="eyebrow" data-i18n="completed.eyebrow">公开预览版状态</p>
+          <h2 id="completed-title" data-i18n="completed.title">目前已完成媒体导入与音频提取</h2>
           <p data-i18n="completed.body">当前正式完成的产品步骤会导入媒体、创建项目目录、提取一份全频段 WAV，并支持直接播放或导出。</p>
           <div class="artifact-path">
             <span data-i18n="completed.output">核心输出</span>
@@ -152,9 +152,9 @@
         <div class="section-heading pipeline-heading">
           <div>
             <p class="eyebrow" data-i18n="pipeline.eyebrow">完整产品流程</p>
-            <h2 id="pipeline-title" data-i18n="pipeline.title">从媒体文件到双语字幕</h2>
+            <h2 id="pipeline-title" data-i18n="pipeline.title">一条本地流程生成翻译字幕</h2>
           </div>
-          <p data-i18n="pipeline.subtitle">七个明确步骤沿用原始时间线。前两步已经完成，后续人声、转录、翻译和字幕步骤按产品流程继续建设。</p>
+          <p data-i18n="pipeline.subtitle">导入媒体后，在本地完成人声处理、语音识别、字幕翻译，并输出源语言与翻译后的 SRT、VTT 文件。</p>
         </div>
 
         <ol class="pipeline-list">
@@ -218,7 +218,7 @@
       <section class="section downloads" id="download" aria-labelledby="download-title">
         <div class="section-heading centered download-heading">
           <p class="eyebrow" data-i18n="downloads.eyebrow">下载桌面应用</p>
-          <h2 id="download-title" data-i18n="downloads.title">选择你的平台</h2>
+          <h2 id="download-title" data-i18n="downloads.title">下载听川，开始本地字幕工作</h2>
           <p data-i18n="downloads.subtitle">安装包通过 GitHub Releases 提供。当前版本仍是未签名预览版，请在确认来源后安装。</p>
         </div>
         <div class="download-grid">
@@ -232,7 +232,7 @@
               <div><dt data-i18n="downloads.format">格式</dt><dd>NSIS .exe</dd></div>
               <div><dt data-i18n="downloads.size">大小</dt><dd>1.10 GiB</dd></div>
             </dl>
-            <p data-i18n="downloads.windowsNote">安装时 Windows 可能显示 Microsoft Defender SmartScreen 提示。</p>
+            <p data-i18n="downloads.windowsNote">当前公开预览版先提供媒体导入与音频提取；完整字幕能力正在按产品流程交付。安装时可能显示 SmartScreen 提示。</p>
             <a class="button button-primary" href="https://github.com/uigdwunm/listenriver-site/releases/download/v0.1.1/ListenRiver-Extractor-0.1.1-windows-x64-setup.exe"><span data-i18n="downloads.windowsButton">下载 Windows 版</span><span aria-hidden="true">↓</span></a>
           </article>
           <article class="download-card">
@@ -256,7 +256,7 @@
     <footer class="site-footer">
       <div class="footer-brand">
         <span class="brand-mark" aria-hidden="true"><span></span></span>
-        <div><strong data-i18n="brand.name">听川</strong><small data-i18n="footer.tagline">让音视频处理过程清晰可见</small></div>
+        <div><strong data-i18n="brand.name">听川</strong><small data-i18n="footer.tagline">在本地生成与翻译视频字幕</small></div>
       </div>
       <div class="footer-links">
         <a href="#pipeline" data-i18n="nav.pipeline">处理流程</a>
