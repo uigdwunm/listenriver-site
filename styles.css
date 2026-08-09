@@ -391,6 +391,18 @@ h3 {
   transform: perspective(1200px) rotateY(-3deg) rotateX(1deg);
 }
 
+.app-screenshot-preview {
+  background: rgba(7, 18, 21, 0.92);
+  padding: 8px;
+}
+
+.app-screenshot-preview img {
+  border-radius: 14px;
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
 .preview-toolbar {
   align-items: center;
   background: rgba(255, 255, 255, 0.065);
