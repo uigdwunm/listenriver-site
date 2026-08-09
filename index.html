@@ -3,200 +3,267 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>ListenRiver / 听川</title>
+    <meta name="theme-color" content="#071b1c" />
+    <title>听川｜本地音视频处理工作站</title>
     <meta
       name="description"
-      content="ListenRiver is a local audio/video processing workstation that keeps each pipeline step inspectable with durable project artifacts."
+      content="听川是一款本地音视频处理工作站，以清晰的处理步骤和可检查的项目产物，帮助你从媒体文件一路处理到字幕。"
     />
     <link rel="icon" href="assets/icon.png" />
     <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
   </head>
   <body>
-    <header class="site-header" aria-label="Site header">
-      <a class="brand" href="./" aria-label="ListenRiver home">
-        <img src="assets/icon.png" alt="" />
-        <span>ListenRiver</span>
+    <header class="site-header" data-i18n-aria-label="aria.siteHeader">
+      <a class="brand" href="#top" data-i18n-aria-label="aria.home">
+        <span class="brand-mark" aria-hidden="true"><span></span></span>
+        <span class="brand-copy">
+          <strong data-i18n="brand.name">听川</strong>
+          <small data-i18n="brand.subtitle">本地工作站</small>
+        </span>
       </a>
-      <nav class="site-nav" aria-label="Primary navigation">
-        <a href="#pipeline">Pipeline</a>
-        <a href="#download">Download</a>
-        <a href="https://github.com/uigdwunm/listenriver-site/releases/tag/v0.1.1">Releases</a>
+
+      <nav class="site-nav" data-i18n-aria-label="aria.primaryNav">
+        <a href="#features" data-i18n="nav.features">产品特点</a>
+        <a href="#pipeline" data-i18n="nav.pipeline">处理流程</a>
+        <a href="#download" data-i18n="nav.download">下载</a>
+        <a href="https://github.com/uigdwunm/listenriver-site/releases/tag/v0.1.1" data-i18n="nav.releases">发布记录</a>
       </nav>
+
+      <button class="language-toggle" type="button" data-language-toggle aria-label="Switch to English">
+        <span class="language-toggle-icon" aria-hidden="true">文</span>
+        <span data-language-label>EN</span>
+      </button>
     </header>
 
-    <main>
+    <main id="top">
       <section class="hero" aria-labelledby="hero-title">
-        <img class="hero-mark" src="assets/icon.png" alt="" />
-        <div class="hero-content">
-          <p class="eyebrow">Local audio/video workstation</p>
-          <h1 id="hero-title">ListenRiver / 听川</h1>
-          <p class="hero-subtitle">
-            A desktop workspace for turning imported media into durable, inspectable audio artifacts first, then continuing through vocals, denoise, transcription, translation, and subtitles.
-          </p>
-          <div class="hero-actions" id="download">
-            <a class="button primary" href="https://github.com/uigdwunm/listenriver-site/releases/download/v0.1.1/ListenRiver-Extractor-0.1.1-windows-x64-setup.exe">Download for Windows x64</a>
-            <a class="button secondary" href="#pipeline">View pipeline</a>
+        <div class="hero-glow hero-glow-one" aria-hidden="true"></div>
+        <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
+
+        <div class="hero-copy">
+          <div class="release-badge">
+            <span class="release-dot" aria-hidden="true"></span>
+            <span data-i18n="hero.releaseBadge">Windows x64 0.1.1 预览版现已提供</span>
           </div>
-          <dl class="release-strip" aria-label="Current release information">
-            <div>
-              <dt>Current app</dt>
-              <dd>ListenRiver Extractor</dd>
+          <p class="eyebrow" data-i18n="hero.eyebrow">本地优先的音视频工作站</p>
+          <h1 id="hero-title" data-i18n-html="hero.title">让每一步处理<br /><em>都看得见。</em></h1>
+          <p class="hero-subtitle" data-i18n="hero.subtitle">
+            从导入媒体、提取音频，到后续的人声、转录、翻译和字幕工作；每一步都有明确状态和可长期保留的项目产物。
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="https://github.com/uigdwunm/listenriver-site/releases/download/v0.1.1/ListenRiver-Extractor-0.1.1-windows-x64-setup.exe">
+              <span class="button-icon" aria-hidden="true">↓</span>
+              <span data-i18n="hero.download">下载 Windows x64 版</span>
+            </a>
+            <a class="button button-ghost" href="#pipeline" data-i18n="hero.viewPipeline">查看完整流程</a>
+          </div>
+          <p class="hero-note" data-i18n="hero.unsignedNote">0.1.1 预览版 · 未签名安装包 · 本地处理</p>
+        </div>
+
+        <div class="workstation-preview" aria-hidden="true">
+          <div class="preview-toolbar">
+            <div class="preview-dots"><span></span><span></span><span></span></div>
+            <span data-i18n="preview.project">项目：采访素材</span>
+            <span class="preview-status" data-i18n="preview.local">本地</span>
+          </div>
+          <div class="preview-body">
+            <div class="wave-panel">
+              <div class="wave-meta">
+                <span data-i18n="preview.originalAudio">原始音频</span>
+                <strong>original.wav</strong>
+              </div>
+              <div class="waveform">
+                <i style="--h: 28%"></i><i style="--h: 54%"></i><i style="--h: 38%"></i><i style="--h: 76%"></i><i style="--h: 94%"></i><i style="--h: 64%"></i><i style="--h: 86%"></i><i style="--h: 48%"></i><i style="--h: 70%"></i><i style="--h: 34%"></i><i style="--h: 58%"></i><i style="--h: 82%"></i><i style="--h: 45%"></i><i style="--h: 67%"></i><i style="--h: 31%"></i><i style="--h: 52%"></i><i style="--h: 73%"></i><i style="--h: 42%"></i><i style="--h: 88%"></i><i style="--h: 62%"></i><i style="--h: 36%"></i><i style="--h: 69%"></i><i style="--h: 47%"></i><i style="--h: 78%"></i>
+              </div>
+              <div class="wave-time"><span>00:00</span><span>24:18</span></div>
             </div>
-            <div>
-              <dt>Version</dt>
-              <dd>0.1.1 preview</dd>
+            <div class="artifact-tree">
+              <div class="tree-heading">
+                <span data-i18n="preview.artifacts">项目产物</span>
+                <span>project.json</span>
+              </div>
+              <div class="tree-row"><span class="tree-caret">⌄</span><span class="folder-icon"></span><strong>steps</strong></div>
+              <div class="tree-row tree-indent"><span class="tree-caret">⌄</span><span class="folder-icon"></span><strong>02-extract-audio</strong></div>
+              <div class="tree-row tree-indent-two"><span></span><span class="file-icon"></span><span>original.wav</span><b>✓</b></div>
+              <div class="tree-row tree-indent"><span class="tree-caret">›</span><span class="folder-icon"></span><span>03-extract-vocals</span><small data-i18n="status.pending">待处理</small></div>
+              <div class="tree-row tree-indent"><span class="tree-caret">›</span><span class="folder-icon"></span><span>05-transcribe-speech</span><small data-i18n="status.pending">待处理</small></div>
+              <div class="tree-row tree-indent"><span class="tree-caret">›</span><span class="folder-icon"></span><span>07-generate-subtitles</span><small data-i18n="status.pending">待处理</small></div>
             </div>
-            <div>
-              <dt>Latest platform</dt>
-              <dd>Windows x64</dd>
-            </div>
-          </dl>
+          </div>
         </div>
       </section>
 
-      <section class="section intro-grid" aria-label="Product principles">
-        <article>
-          <span class="kicker">Local-first</span>
-          <h2>默认在本机处理</h2>
-          <p>
-            ListenRiver is designed as a local workstation. Cloud processing is not the default path and should only happen after a clear user choice.
-          </p>
-        </article>
-        <article>
-          <span class="kicker">Inspectable</span>
-          <h2>每一步都有产物</h2>
-          <p>
-            Projects keep durable files such as extracted WAV audio and project metadata under the project directory, so outputs can be played, exported, and inspected.
-          </p>
-        </article>
-        <article>
-          <span class="kicker">Project-based</span>
-          <h2>以项目目录管理</h2>
-          <p>
-            Each imported media file becomes a project with explicit step folders. Later processing can build on the existing project artifacts.
-          </p>
-        </article>
+      <section class="quick-facts" data-i18n-aria-label="aria.releaseInfo">
+        <div><span data-i18n="facts.currentVersion">当前版本</span><strong data-i18n="facts.versionValue">0.1.1 预览版</strong></div>
+        <div><span data-i18n="facts.latestPlatform">最新平台</span><strong>Windows x64</strong></div>
+        <div><span data-i18n="facts.processing">处理方式</span><strong data-i18n="facts.localProcessing">默认本地处理</strong></div>
+        <div><span data-i18n="facts.artifacts">产物管理</span><strong data-i18n="facts.projectDirectory">独立项目目录</strong></div>
+      </section>
+
+      <section class="section features" id="features" aria-labelledby="features-title">
+        <div class="section-heading centered">
+          <p class="eyebrow" data-i18n="features.eyebrow">为什么选择听川</p>
+          <h2 id="features-title" data-i18n="features.title">处理过程不再是黑盒</h2>
+          <p data-i18n="features.subtitle">围绕本地处理、可检查产物和项目化管理设计，让长流程工作更可靠，也更容易继续。</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card feature-card-primary">
+            <span class="feature-number">01</span>
+            <div class="feature-symbol symbol-local" aria-hidden="true"><i></i></div>
+            <h3 data-i18n="features.localTitle">默认在本机处理</h3>
+            <p data-i18n="features.localBody">媒体文件和项目产物默认留在你的电脑上。只有在明确选择云端处理后，才会上传必要的数据。</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-number">02</span>
+            <div class="feature-symbol symbol-artifact" aria-hidden="true"><i></i><i></i><i></i></div>
+            <h3 data-i18n="features.artifactTitle">每一步都有产物</h3>
+            <p data-i18n="features.artifactBody">音频、时间线、转录和字幕都保存在明确的步骤目录中，可以检查、播放、导出和复用。</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-number">03</span>
+            <div class="feature-symbol symbol-project" aria-hidden="true"><i></i></div>
+            <h3 data-i18n="features.projectTitle">以项目目录管理</h3>
+            <p data-i18n="features.projectBody">每个媒体文件对应一个独立项目。处理状态、工具版本和产物来源都记录在项目索引中。</p>
+          </article>
+        </div>
       </section>
 
       <section class="section completed" aria-labelledby="completed-title">
-        <div>
-          <p class="eyebrow">Implemented now</p>
-          <h2 id="completed-title">Current completed step</h2>
-          <p>
-            The current packaged flow imports media, extracts one full-band working WAV, writes project metadata, and lets the user play or export that WAV.
-          </p>
+        <div class="completed-copy">
+          <p class="eyebrow" data-i18n="completed.eyebrow">当前已实现</p>
+          <h2 id="completed-title" data-i18n="completed.title">从媒体导入到完整工作音频</h2>
+          <p data-i18n="completed.body">当前正式完成的产品步骤会导入媒体、创建项目目录、提取一份全频段 WAV，并支持直接播放或导出。</p>
+          <div class="artifact-path">
+            <span data-i18n="completed.output">核心输出</span>
+            <code>steps/02-extract-audio/audio/original.wav</code>
+          </div>
         </div>
         <ol class="artifact-list">
-          <li>Import video or audio media</li>
-          <li>Create the project directory</li>
-          <li>Write <code>steps/02-extract-audio/audio/original.wav</code></li>
-          <li>Write <code>project.json</code></li>
-          <li>Play or export the extracted WAV</li>
+          <li><span data-i18n="completed.step1">导入视频或音频媒体</span></li>
+          <li><span data-i18n="completed.step2">创建独立项目目录</span></li>
+          <li><span data-i18n="completed.step3">写入完整工作音频 original.wav</span></li>
+          <li><span data-i18n="completed.step4">写入项目索引 project.json</span></li>
+          <li><span data-i18n="completed.step5">播放或导出提取后的 WAV</span></li>
         </ol>
       </section>
 
       <section class="section pipeline" id="pipeline" aria-labelledby="pipeline-title">
-        <div class="section-heading">
-          <p class="eyebrow">Product pipeline</p>
-          <h2 id="pipeline-title">From media to subtitles</h2>
-          <p>
-            The full product pipeline is exposed as explicit steps. The audio extraction step is available today; downstream voice, transcript, translation, and subtitle steps are pending product work.
-          </p>
+        <div class="section-heading pipeline-heading">
+          <div>
+            <p class="eyebrow" data-i18n="pipeline.eyebrow">完整产品流程</p>
+            <h2 id="pipeline-title" data-i18n="pipeline.title">从媒体文件到双语字幕</h2>
+          </div>
+          <p data-i18n="pipeline.subtitle">七个明确步骤沿用原始时间线。前两步已经完成，后续人声、转录、翻译和字幕步骤按产品流程继续建设。</p>
         </div>
 
         <ol class="pipeline-list">
           <li class="is-done">
             <span class="step-number">01</span>
-            <div>
-              <h3>Import video/media</h3>
-              <p>Create the project directory and project index.</p>
-            </div>
-            <strong>Done</strong>
+            <div><h3 data-i18n="pipeline.step1Title">导入视频或媒体</h3><p data-i18n="pipeline.step1Body">创建项目目录和项目索引。</p></div>
+            <strong data-i18n="status.done">已完成</strong>
           </li>
           <li class="is-done">
             <span class="step-number">02</span>
-            <div>
-              <h3>Extract audio</h3>
-              <p>Produce <code>steps/02-extract-audio/audio/original.wav</code>.</p>
-            </div>
-            <strong>Done</strong>
+            <div><h3 data-i18n="pipeline.step2Title">提取音频</h3><p data-i18n-html="pipeline.step2Body">生成全频段工作音频 <code>original.wav</code>。</p></div>
+            <strong data-i18n="status.done">已完成</strong>
           </li>
           <li>
             <span class="step-number">03</span>
-            <div>
-              <h3>Extract vocals</h3>
-              <p>Find speech candidates and produce segment-level vocal artifacts.</p>
-            </div>
-            <strong>Pending</strong>
+            <div><h3 data-i18n="pipeline.step3Title">提取人声</h3><p data-i18n="pipeline.step3Body">定位候选语音区域并生成分段人声产物。</p></div>
+            <strong data-i18n="status.pending">待实现</strong>
           </li>
           <li>
             <span class="step-number">04</span>
-            <div>
-              <h3>Enhance and denoise vocals</h3>
-              <p>Clean vocal segments while preserving the original timeline mapping.</p>
-            </div>
-            <strong>Pending</strong>
+            <div><h3 data-i18n="pipeline.step4Title">增强并降噪人声</h3><p data-i18n="pipeline.step4Body">清理人声片段，同时保留原始时间线映射。</p></div>
+            <strong data-i18n="status.pending">待实现</strong>
           </li>
           <li>
             <span class="step-number">05</span>
-            <div>
-              <h3>Transcribe speech</h3>
-              <p>Write structured transcript files for downstream subtitle work.</p>
-            </div>
-            <strong>Pending</strong>
+            <div><h3 data-i18n="pipeline.step5Title">转录语音</h3><p data-i18n="pipeline.step5Body">生成供后续字幕处理使用的结构化转录文件。</p></div>
+            <strong data-i18n="status.pending">待实现</strong>
           </li>
           <li>
             <span class="step-number">06</span>
-            <div>
-              <h3>Translate subtitles</h3>
-              <p>Enrich transcript segments with translation fields.</p>
-            </div>
-            <strong>Pending</strong>
+            <div><h3 data-i18n="pipeline.step6Title">翻译字幕</h3><p data-i18n="pipeline.step6Body">在保留原文和时间信息的同时写入逐段翻译。</p></div>
+            <strong data-i18n="status.pending">待实现</strong>
           </li>
           <li>
             <span class="step-number">07</span>
-            <div>
-              <h3>Generate subtitles</h3>
-              <p>Render source and translated SRT/VTT files.</p>
-            </div>
-            <strong>Pending</strong>
+            <div><h3 data-i18n="pipeline.step7Title">生成字幕</h3><p data-i18n="pipeline.step7Body">输出源语言和翻译后的 SRT、VTT 字幕文件。</p></div>
+            <strong data-i18n="status.pending">待实现</strong>
           </li>
         </ol>
       </section>
 
-      <section class="section limits" aria-labelledby="limits-title">
+      <section class="section boundaries" aria-labelledby="boundaries-title">
         <div class="section-heading">
-          <p class="eyebrow">Boundaries</p>
-          <h2 id="limits-title">Clear about what mixed audio can and cannot do</h2>
+          <p class="eyebrow" data-i18n="boundaries.eyebrow">能力边界</p>
+          <h2 id="boundaries-title" data-i18n="boundaries.title">对混合音轨保持诚实</h2>
         </div>
-        <div class="limit-grid">
-          <p>
-            Vocal extraction is not the same as isolating one chosen person. Background speech can remain speech and may appear in extracted vocal segments.
-          </p>
-          <p>
-            A single mixed track can contain overlapping speakers, music, reverb, wind, and compression. ListenRiver will not promise perfect separation from that source.
-          </p>
+        <div class="boundary-grid">
+          <article>
+            <span class="boundary-icon" aria-hidden="true">01</span>
+            <h3 data-i18n="boundaries.voiceTitle">提取人声不等于锁定一个人</h3>
+            <p data-i18n="boundaries.voiceBody">背景中的说话声仍然属于人声，可能保留在提取结果中。当前流程不负责分离重叠说话者。</p>
+          </article>
+          <article>
+            <span class="boundary-icon" aria-hidden="true">02</span>
+            <h3 data-i18n="boundaries.qualityTitle">单条混合音轨无法保证完美分离</h3>
+            <p data-i18n="boundaries.qualityBody">多人重叠、音乐、混响、风噪和重压缩都会影响结果，因此不会承诺不现实的完美分离。</p>
+          </article>
         </div>
       </section>
 
-      <section class="section download-panel" aria-labelledby="download-title">
-        <div>
-          <p class="eyebrow">Download</p>
-          <h2 id="download-title">Windows and macOS preview builds</h2>
-          <p>
-            Windows x64 version 0.1.1 is the latest public preview. The installer is unsigned, so Windows may show a Microsoft Defender SmartScreen warning. The earlier macOS arm64 0.1.0 preview remains available separately and may require manual approval in Privacy &amp; Security.
-          </p>
+      <section class="section downloads" id="download" aria-labelledby="download-title">
+        <div class="section-heading centered download-heading">
+          <p class="eyebrow" data-i18n="downloads.eyebrow">下载桌面应用</p>
+          <h2 id="download-title" data-i18n="downloads.title">选择你的平台</h2>
+          <p data-i18n="downloads.subtitle">安装包通过 GitHub Releases 提供。当前版本仍是未签名预览版，请在确认来源后安装。</p>
         </div>
-        <div class="download-actions">
-          <a class="button primary" href="https://github.com/uigdwunm/listenriver-site/releases/download/v0.1.1/ListenRiver-Extractor-0.1.1-windows-x64-setup.exe">Download Windows x64</a>
-          <a class="button secondary" href="https://github.com/uigdwunm/listenriver-site/releases/tag/v0.1.0">macOS arm64 0.1.0</a>
+        <div class="download-grid">
+          <article class="download-card is-latest">
+            <div class="platform-heading">
+              <span class="platform-icon windows-icon" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+              <div><span class="latest-label" data-i18n="downloads.latest">最新版</span><h3>Windows x64</h3></div>
+            </div>
+            <dl>
+              <div><dt data-i18n="downloads.version">版本</dt><dd data-i18n="downloads.windowsVersion">0.1.1 预览版</dd></div>
+              <div><dt data-i18n="downloads.format">格式</dt><dd>NSIS .exe</dd></div>
+              <div><dt data-i18n="downloads.size">大小</dt><dd>1.10 GiB</dd></div>
+            </dl>
+            <p data-i18n="downloads.windowsNote">安装时 Windows 可能显示 Microsoft Defender SmartScreen 提示。</p>
+            <a class="button button-primary" href="https://github.com/uigdwunm/listenriver-site/releases/download/v0.1.1/ListenRiver-Extractor-0.1.1-windows-x64-setup.exe"><span data-i18n="downloads.windowsButton">下载 Windows 版</span><span aria-hidden="true">↓</span></a>
+          </article>
+          <article class="download-card">
+            <div class="platform-heading">
+              <span class="platform-icon apple-icon" aria-hidden="true">●</span>
+              <div><span class="older-label" data-i18n="downloads.earlier">较早预览版</span><h3>macOS arm64</h3></div>
+            </div>
+            <dl>
+              <div><dt data-i18n="downloads.version">版本</dt><dd data-i18n="downloads.macVersion">0.1.0 预览版</dd></div>
+              <div><dt data-i18n="downloads.format">格式</dt><dd>.zip</dd></div>
+              <div><dt data-i18n="downloads.architecture">架构</dt><dd>Apple Silicon</dd></div>
+            </dl>
+            <p data-i18n="downloads.macNote">未签名版本可能需要在“隐私与安全性”中手动允许打开。</p>
+            <a class="button button-outline" href="https://github.com/uigdwunm/listenriver-site/releases/tag/v0.1.0"><span data-i18n="downloads.macButton">查看 macOS 版本</span><span aria-hidden="true">↗</span></a>
+          </article>
         </div>
+        <p class="checksum-note"><span data-i18n="downloads.checksum">Windows 0.1.1 SHA-256</span><code>F46ED49D562CF338925860BA39C4A0CBF81D706F8F961364A06FF15248320CB7</code></p>
       </section>
     </main>
 
     <footer class="site-footer">
-      <span>ListenRiver / 听川</span>
-      <a href="https://github.com/uigdwunm/listenriver-site">GitHub repository</a>
+      <div class="footer-brand">
+        <span class="brand-mark" aria-hidden="true"><span></span></span>
+        <div><strong data-i18n="brand.name">听川</strong><small data-i18n="footer.tagline">让音视频处理过程清晰可见</small></div>
+      </div>
+      <div class="footer-links">
+        <a href="#pipeline" data-i18n="nav.pipeline">处理流程</a>
+        <a href="#download" data-i18n="nav.download">下载</a>
+        <a href="https://github.com/uigdwunm/listenriver-site" data-i18n="footer.github">GitHub 仓库</a>
+      </div>
+      <span class="footer-copyright">© 2026 ListenRiver</span>
     </footer>
   </body>
 </html>
