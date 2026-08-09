@@ -371,8 +371,15 @@ h3 {
   justify-content: space-between;
 }
 
-.download-panel div {
+.download-panel > div:first-child {
   max-width: 680px;
+}
+
+.download-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 250px;
 }
 
 .site-footer {
